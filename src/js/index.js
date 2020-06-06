@@ -1,12 +1,31 @@
-alert("El documento js esta enlazado")
-function entrar(){
-    
-var done=0;
-var usuario=document.usuario.value;
-var password=document.password.value;
+//alert("El documento js esta enlazado")
 
-if (usuario=="sabalsa" && password=="1234") { 
-    window.location="TU_PAGINA_WEB.HTML";
-    alert("Este es un mensaje de alerta para sabalsa");
-    }
+const btn= document.getElementById("click");
+btn.addEventListener('click',entrar);
+
+const usuarios= [{user:"arturo",password:"1234"}]
+
+function validar_usuario(usuario, password){
+    return usuarios.find((u)=>{
+        return u.user===usuario && u.password===password
+    })
+}
+function entrar(){
+//alert("Se dio click");
+var done=0;
+const usuario=document.login.usuario.value;
+const password= document.login.password.value;
+if(!usuario || !password){
+ // TODO:Enviar que el usuario es invalido
+     
+ return;
+}
+if(validar_usuario(usuario.toLowerCase().trim(), password)){
+
+     api();
+}
+}
+function api(){
+   window.open("index_API.html");
+//Sirve?
 }

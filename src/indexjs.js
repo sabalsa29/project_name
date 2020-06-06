@@ -1,3 +1,0 @@
-function entrar(){
-    alert("Listo");
-}
